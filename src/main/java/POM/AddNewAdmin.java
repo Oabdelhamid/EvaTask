@@ -7,19 +7,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.sql.Driver;
 import java.time.Duration;
 
-public class AddNewAdmin {
+public class AddNewAdmin  extends pageObjectModel {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+     public AddNewAdmin (WebDriver driver){
 
-    WebDriver driver;
-
-    public AddNewAdmin(WebDriver driver){
-        this.driver = driver;
-    }
-
+        super(driver); ;
+     }
 
 
-
-        public AddNewAdmin addUserRole(){
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    public AddNewAdmin addUserRole(){
+           // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
             By addButton = By.cssSelector("div.orangehrm-header-container>button");
             driver.findElement(addButton).click();
             By UserRole = By.xpath("(//div[@class=\"oxd-select-wrapper\"])[1]");
@@ -40,7 +37,7 @@ public class AddNewAdmin {
         }
 
         public AddNewAdmin addEmployeeName( String EmployName){
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+           // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
             By EmployeeName = By.xpath("//input[@placeholder=\"Type for hints...\"]");
             driver.findElement(EmployeeName).sendKeys(EmployName);
             By name = By.xpath("//div[@class=\"oxd-autocomplete-option\"]/span");

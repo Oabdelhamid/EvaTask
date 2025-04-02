@@ -7,12 +7,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class Dashbaord {
-   WebDriver driver ;
+public class Dashbaord extends pageObjectModel {
 
-   public Dashbaord(WebDriver driver){
-       this.driver = driver ;
-   }
+    public Dashbaord(WebDriver driver){
+
+        super(driver);
+    }
+
 
    public Dashbaord NagivateToAdminPage(){
        By Admin = By.xpath("//span[text()='Admin']");

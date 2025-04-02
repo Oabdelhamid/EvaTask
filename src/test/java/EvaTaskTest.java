@@ -5,21 +5,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class EvaTaskTest {
-    WebDriver driver ;
-  @BeforeClass
-    public void setup(){
-      ChromeOptions options = new ChromeOptions();
-      options.enableBiDi().addArguments("Start-maximized");
-      driver = new ChromeDriver(options);
-
-  }
-
-  @AfterClass
-    public void TearDown(){
-   // driver.quit();
-
-  }
+public class EvaTaskTest extends Testcase {
 
   @Test
     public void Login(){
@@ -43,6 +29,7 @@ public class EvaTaskTest {
     int After = new AdminAfterNewUser(driver).NumberOfRecordsAfterAddNewUser();
     Assert.assertEquals(After, Before+1);
   }
+
   @Test(dependsOnMethods = {"Login", "DashboardPage"})
   public void SearchForUserAndDeleteIt(){
     int BeforeDelete = new AdminAfterNewUser(driver).NumberOfRecordsAfterAddNewUser();
@@ -51,10 +38,7 @@ public class EvaTaskTest {
     int AfterDelete = new AdminAfterNewUser(driver).NumberOfRecordsAfterDeleteNewUser();
     Assert.assertEquals(AfterDelete, BeforeDelete-1);
 
-
   }
-
-
 
 
 }

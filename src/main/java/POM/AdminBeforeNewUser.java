@@ -3,10 +3,12 @@ package POM;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AdminBeforeNewUser {
-    WebDriver driver ;
+public class AdminBeforeNewUser extends pageObjectModel {
+
+
     public AdminBeforeNewUser(WebDriver driver){
-        this.driver = driver ;
+
+        super(driver);
     }
 
     public int NumberOfRecordsBeforeAddNewUser() {

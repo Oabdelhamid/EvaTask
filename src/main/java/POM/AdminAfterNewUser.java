@@ -6,13 +6,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class AdminAfterNewUser {
-    WebDriver driver ;
-    public AdminAfterNewUser(WebDriver driver){
-        this.driver = driver ;
+public class AdminAfterNewUser extends pageObjectModel {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    public AdminAfterNewUser(WebDriver driver) {
+        super(driver);
+
     }
     public int NumberOfRecordsAfterAddNewUser() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         By NumberOfRecords = By.cssSelector("div.orangehrm-horizontal-padding>span");
         wait.until(driver -> driver.findElement(NumberOfRecords).isDisplayed());
         String recordsText = driver.findElement(NumberOfRecords).getText();
@@ -21,7 +22,7 @@ public class AdminAfterNewUser {
     }
 
     public AdminAfterNewUser SearchForUserName(String UserName){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+       // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         By inputSearch = By.xpath("//label[text()=\"Username\"]/parent::div/following-sibling::div/input");
         wait.until(driver -> driver.findElement(inputSearch).isDisplayed());
         driver.findElement(inputSearch).sendKeys(UserName);
@@ -31,7 +32,7 @@ public class AdminAfterNewUser {
     }
 
     public AdminAfterNewUser DeleteNewUser(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+       // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         By Trash = By.cssSelector("i.oxd-icon.bi-trash");
         wait.until(driver -> driver.findElement(Trash).isDisplayed());
         driver.findElement(Trash).click();
@@ -41,7 +42,7 @@ public class AdminAfterNewUser {
     }
 
     public int NumberOfRecordsAfterDeleteNewUser() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         By NumberOfRecords = By.cssSelector("div.orangehrm-horizontal-padding>span");
         wait.until(driver -> driver.findElement(NumberOfRecords).isDisplayed());
         String recordsText = driver.findElement(NumberOfRecords).getText();
