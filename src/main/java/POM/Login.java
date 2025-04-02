@@ -18,6 +18,7 @@ public Login Negative(){
     Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     wait.until(driver -> driver.findElement(By.xpath("//input[@name=\"username\"]")).isDisplayed());
 
+
 return this;
 }
 
@@ -29,6 +30,8 @@ public Login AddUsernameAndPassword(String username, String password){
 }
 public Login ClickLoginButton(){
     driver.findElement(By.xpath("//button[@type='submit']")).click();
+    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    wait.until(driver -> driver.findElement(By.xpath("//span[text()='Admin']")).isDisplayed());
     return this;
 }
 
