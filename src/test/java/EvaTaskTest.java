@@ -45,8 +45,9 @@ public class EvaTaskTest {
   }
   @Test(dependsOnMethods = {"Login", "DashboardPage"})
   public void SearchForUserAndDeleteIt(){
-    new AdminAfterNewUser(driver).SearchForUserName("Omar1234").DeleteNewUser();
     int BeforeDelete = new AdminAfterNewUser(driver).NumberOfRecordsAfterAddNewUser();
+    new AdminAfterNewUser(driver).SearchForUserName("Omar1234").DeleteNewUser();
+    new Dashbaord(driver).NagivateToAdminPage();
     int AfterDelete = new AdminAfterNewUser(driver).NumberOfRecordsAfterDeleteNewUser();
     Assert.assertEquals(AfterDelete, BeforeDelete-1);
 

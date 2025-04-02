@@ -56,7 +56,6 @@ public class AddNewAdmin {
 
         By Name = By.xpath("//input[@wfd-id=\"id2\"]");
         driver.findElement(Name).sendKeys(UserName);
-
         By Password = By.xpath("//input[@wfd-id=\"id3\"]");
         driver.findElement(Password).sendKeys(password);
         By ConfirmPassword = By.xpath("//input[@wfd-id=\"id4\"]");
