@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98209da6-5a4d-4567-a871-4ef5e0846083" name="Changes" comment="finish up the task &#10;reduce the number of lines of code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/POM/pageObjectModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Testcase.java" afterDir="false" />
+    <list default="true" id="98209da6-5a4d-4567-a871-4ef5e0846083" name="Changes" comment="Apply fluent design">
+      <change afterPath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/AdminUserSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/TestRunner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/feature/ManageAdminUsers.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/POM/AddNewAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POM/AddNewAdmin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/POM/AdminAfterNewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POM/AdminAfterNewUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/POM/AdminBeforeNewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POM/AdminBeforeNewUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/POM/Dashbaord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POM/Dashbaord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/POM/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POM/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/EvaTaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/EvaTaskTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +44,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -59,9 +60,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;TestNG.EvaTaskTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.TestRunner.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/omara/OneDrive/Documents/GitHub/EvaTask&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/omara/OneDrive/Documents/GitHub/EvaTask&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -105,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743610590434</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Apply fluent design">
+      <option name="closed" value="true" />
+      <created>1743612706292</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743612706292</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,6 +136,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="handel all POM" />
     <MESSAGE value="finish up the task &#10;reduce the number of lines of code" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish up the task &#10;reduce the number of lines of code" />
+    <MESSAGE value="Apply fluent design" />
+    <option name="LAST_COMMIT_MESSAGE" value="Apply fluent design" />
   </component>
 </project>

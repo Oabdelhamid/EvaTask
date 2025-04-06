@@ -16,7 +16,6 @@ public class AddNewAdmin  extends pageObjectModel {
 
 
     public AddNewAdmin addUserRole(){
-           // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
             By addButton = By.cssSelector("div.orangehrm-header-container>button");
             driver.findElement(addButton).click();
             By UserRole = By.xpath("(//div[@class=\"oxd-select-wrapper\"])[1]");
@@ -37,7 +36,6 @@ public class AddNewAdmin  extends pageObjectModel {
         }
 
         public AddNewAdmin addEmployeeName( String EmployName){
-           // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
             By EmployeeName = By.xpath("//input[@placeholder=\"Type for hints...\"]");
             driver.findElement(EmployeeName).sendKeys(EmployName);
             By name = By.xpath("//div[@class=\"oxd-autocomplete-option\"]/span");
@@ -59,7 +57,7 @@ public class AddNewAdmin  extends pageObjectModel {
         driver.findElement(ConfirmPassword).sendKeys(password);
         return this;
     }
-    public AddNewAdmin addSaveButton(){
+    public AddNewAdmin AddSaveButton(){
         By SaveButton = By.xpath("//button[@type=\"submit\"]");
         driver.findElement(SaveButton).click();
         return this;

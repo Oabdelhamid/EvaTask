@@ -24,4 +24,12 @@ public class Dashbaord extends pageObjectModel {
 
    }
 
+    public int NumberOfRecordsBeforeAddNewUser() {
+        By NumberOfRecords = By.cssSelector("div.orangehrm-horizontal-padding>span");
+        String recordsText = driver.findElement(NumberOfRecords).getText();
+        String number = recordsText.replaceAll("[^0-9]", "");
+        return Integer.parseInt(number);
+
+    }
+
 }
