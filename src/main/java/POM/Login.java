@@ -12,12 +12,11 @@ public class  Login extends pageObjectModel  {
      public Login(WebDriver driver) {
          super(driver);
      }
+    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
     public Login Negative(){
        driver.navigate().to("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(driver -> driver.findElement(By.xpath("//input[@name=\"username\"]")).isDisplayed());
-
 
     return this;
     }
@@ -30,7 +29,6 @@ public class  Login extends pageObjectModel  {
     }
     public Login ClickLoginButton(){
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(driver -> driver.findElement(By.xpath("//span[text()='Admin']")).isDisplayed());
         return this;
     }

@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98209da6-5a4d-4567-a871-4ef5e0846083" name="Changes" comment="Apply Cucumber in all project &#10;add feature file , Hooks file and TestRunner">
-      <change beforePath="$PROJECT_DIR$/src/test/java/EvaTaskTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Testcase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/POM/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POM/Login.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743909210944</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Apply Cucumber in all project &#10;add feature file , Hooks file and TestRunner">
+      <option name="closed" value="true" />
+      <created>1743909278607</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743909278607</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

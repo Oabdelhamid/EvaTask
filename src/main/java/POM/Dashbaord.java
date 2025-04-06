@@ -13,12 +13,11 @@ public class Dashbaord extends pageObjectModel {
 
         super(driver);
     }
-
+    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
    public Dashbaord NagivateToAdminPage(){
        By Admin = By.xpath("//span[text()='Admin']");
        driver.findElement(Admin).click();
-       Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
        wait.until(driver -> driver.findElement(By.cssSelector("div.orangehrm-horizontal-padding>span")).isDisplayed());
        return this;
 
