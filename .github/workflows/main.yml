@@ -33,3 +33,10 @@ jobs:
       - name: Run tests with Maven
         run: mvn test -Dtest=TestRunner  # Replace TestRunner with your actual test runner class name
 
+      # Step to upload screenshots if tests fail
+      - name: Upload screenshots as artifacts
+        if: failure()  # Only upload screenshots if the tests fail
+        uses: actions/upload-artifact@v3
+        with:
+          name: screenshots
+          path: screenshots/  # This is the directory where your screenshots are stored after failure

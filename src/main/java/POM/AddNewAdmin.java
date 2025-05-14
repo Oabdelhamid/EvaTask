@@ -50,7 +50,8 @@ public class AddNewAdmin  extends pageObjectModel {
 
     public AddNewAdmin addUserNameAndPassword(String UserName, String password){
 
-
+        System.out.println("Current URL: " + driver.getCurrentUrl());
+        System.out.println(driver.getPageSource());
         By Name = By.xpath("//input[@wfd-id=\"id2\"]");
         wait.until(ExpectedConditions.visibilityOfElementLocated(Name));
         driver.findElement(Name).sendKeys(UserName);
