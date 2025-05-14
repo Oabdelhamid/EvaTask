@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '21'  # Use Java 21 for this action
+          distribution: 'adoptopenjdk'
 
       - name: Set up Google Chrome
         run: |
