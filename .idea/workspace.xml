@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="98209da6-5a4d-4567-a871-4ef5e0846083" name="Changes" comment="CI/CD">
       <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -346,7 +345,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747259642641</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="CI/CD">
+      <option name="closed" value="true" />
+      <created>1747260727606</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1747260727606</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

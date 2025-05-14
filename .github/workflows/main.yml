@@ -33,14 +33,18 @@ jobs:
       - name: Run tests with Maven
         run: mvn test -Dtest=TestRunner  # Replace TestRunner with your actual test runner class name
 
-      # Check contents of the screenshots directory
+      # Check contents of the screenshots directory using Windows command
       - name: List screenshots directory
-        run: ls -R screenshots/
+        if: always()  # Run regardless of whether tests pass or fail
+        run: |
+          dir screenshots /s
+        shell: cmd
 
       # Step to upload screenshots if tests fail
       - name: Upload screenshots as artifacts
         if: failure()  # Only upload screenshots if the tests fail
         uses: actions/upload-artifact@v3
         with:
-          name: screenshots
-          path: screenshots/*  # This is the directory where your screenshots are stored after failure
+          name: screenshot-artifacts
+          path: screenshots/**  # This will include all files in the screenshots directory and subdirectories
+          retention-days: 5  # Keep the artifacts for 5 days (optional)
