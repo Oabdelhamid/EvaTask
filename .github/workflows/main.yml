@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: windows-latest  # Use Windows for the test execution environment
+    runs-on: windows-latest  # Use Windows for the test execution
 
     steps:
       - name: Checkout repository
