@@ -2,6 +2,7 @@ package POM;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.sql.Driver;
@@ -41,6 +42,7 @@ public class AddNewAdmin  extends pageObjectModel {
             By name = By.xpath("//div[@class=\"oxd-autocomplete-option\"]/span");
             wait.until(driver -> driver.findElement(name).isDisplayed());
             driver.findElement(name).click();
+
             return this;
 
         }
@@ -50,7 +52,7 @@ public class AddNewAdmin  extends pageObjectModel {
 
 
         By Name = By.xpath("//input[@wfd-id=\"id2\"]");
-        wait.until(driver -> driver.findElement(Name).isDisplayed());
+        wait.until(ExpectedConditions.visibilityOfElementLocated(Name));
         driver.findElement(Name).sendKeys(UserName);
         By Password = By.xpath("//input[@wfd-id=\"id3\"]");
         wait.until(driver -> driver.findElement(Password).isDisplayed());
