@@ -47,72 +47,10 @@ jobs:
           }
         shell: pwsh
 
-      # Create artifacts manually without using actions/upload-artifact
-      - name: Package and upload screenshots
+      # Upload the screenshots from the directory as an artifact
+      - name: Upload screenshots as artifacts
         if: failure()  # Only upload screenshots if the tests fail
-        run: |
-          # Create a directory for artifacts if it doesn't exist
-          New-Item -ItemType Directory -Path ".github/artifacts" -Force
-          
-          # Create a zip file with screenshots
-          Compress-Archive -Path "screenshots/*" -DestinationPath ".github/artifacts/screenshots.zip" -Force
-          
-          # Create artifact metadata
-          $artifactName = "test-screenshots-$($env:GITHUB_RUN_ID)"
-          $artifactPath = ".github/artifacts/screenshots.zip"
-          
-          # Set output variable for use in subsequent steps
-          echo "::set-output name=artifact_name::$artifactName"
-          echo "::set-output name=artifact_path::$artifactPath"
-          
-          # Display info about the created artifact
-          Get-Item -Path $artifactPath | Format-List FullName, Length, LastWriteTime
-        shell: pwsh
-        id: package_artifacts
-
-      # Alternative approach using GitHub CLI
-      - name: Upload artifact with GitHub CLI
-        if: failure()
-        run: |
-          # Install GitHub CLI
-          choco install gh -y
-          
-          # Authenticate with GitHub token
-          $env:GITHUB_TOKEN = "${{ secrets.GITHUB_TOKEN }}"
-          
-          # Upload artifact using GitHub CLI
-          gh api -X POST /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts ` 
-            --field name="screenshots" ` 
-            --field=content_type="application/zip" ` 
-            --field=file="@.github/artifacts/screenshots.zip"
-        shell: pwsh
-
-      # Alternative upload approach using direct HTTP request
-      - name: Upload artifact with HTTP request
-        if: failure() && steps.package_artifacts.outcome == 'success'
-        run: |
-          # Create the headers for the HTTP request
-          $headers = @{
-            "Authorization" = "token ${{ secrets.GITHUB_TOKEN }}"
-            "Content-Type" = "application/zip"
-            "Accept" = "application/vnd.github.v3+json"
-          }
-          
-          # Get file info for the artifact
-          $fileInfo = Get-Item -Path ".github/artifacts/screenshots.zip"
-          $fileContent = [System.IO.File]::ReadAllBytes($fileInfo.FullName)
-          
-          # Upload the artifact using an HTTP request
-          $artifactUrl = "https://api.github.com/repos/${{ github.repository }}/actions/artifacts"
-          $artifact = @{
-            name = "screenshots"
-            file = $fileContent
-          }
-          
-          try {
-            $response = Invoke-RestMethod -Uri $artifactUrl -Method Post -Headers $headers -Body $artifact -ErrorAction Stop
-            Write-Output "Artifact uploaded successfully: $($response.id)"
-          } catch {
-            Write-Output "Error uploading artifact: $_"
-          }
-        shell: pwsh
+        uses: actions/upload-artifact@v3
+        with:
+          name: screenshots
+          path: screenshots/*  # This points to the 'screenshots' directory in your repository
