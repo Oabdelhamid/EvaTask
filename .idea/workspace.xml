@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98209da6-5a4d-4567-a871-4ef5e0846083" name="Changes" comment="Apply Cucumber in all project &#10;add feature file , Hooks file and TestRunner">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hooks/Hooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/AdminUserSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/AdminUserSteps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepdefinitions/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepdefinitions/TestRunner.java" afterDir="false" />
+    <list default="true" id="98209da6-5a4d-4567-a871-4ef5e0846083" name="Changes" comment="CI/CD">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743909777828</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="CI/CD">
+      <option name="closed" value="true" />
+      <created>1747243351281</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1747243351281</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,6 +205,7 @@
     <MESSAGE value="finish up the task &#10;reduce the number of lines of code" />
     <MESSAGE value="Apply fluent design" />
     <MESSAGE value="Apply Cucumber in all project &#10;add feature file , Hooks file and TestRunner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Apply Cucumber in all project &#10;add feature file , Hooks file and TestRunner" />
+    <MESSAGE value="CI/CD" />
+    <option name="LAST_COMMIT_MESSAGE" value="CI/CD" />
   </component>
 </project>

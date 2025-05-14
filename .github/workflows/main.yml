@@ -18,15 +18,19 @@ jobs:
         with:
           java-version: '21'  # Use Java 21 for this action
 
-      - name: Set up Chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: 'latest'  # Make sure the latest version of Chrome is installed
+      - name: Set up Google Chrome
+        run: |
+          choco install googlechrome -y  # Installs the latest version of Google Chrome available on Chocolatey
 
       - name: Download ChromeDriver
         run: |
-          $url = "https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_win32.zip"  # Adjust this URL to the appropriate version
-          Invoke-WebRequest -Uri $url -OutFile chromedriver.zip
+          # Get the latest version of ChromeDriver that corresponds to the latest version of Google Chrome
+          $chromeVersion = (Invoke-WebRequest -Uri "https://omahaproxy.appspot.com/all.json" | ConvertFrom-Json | Where-Object { $_.os -eq "win" } | Select-Object -First 1).versions[0].current_version
+          Write-Host "Latest Chrome version: $chromeVersion"
+          
+          # Download the matching version of ChromeDriver
+          $driverUrl = "https://chromedriver.storage.googleapis.com/$chromeVersion/chromedriver_win32.zip"
+          Invoke-WebRequest -Uri $driverUrl -OutFile chromedriver.zip
           Expand-Archive -Path chromedriver.zip -DestinationPath $env:USERPROFILE\chromedriver
           $env:PATH += ";$env:USERPROFILE\chromedriver"  # Add the chromedriver directory to the PATH
 
@@ -37,4 +41,7 @@ jobs:
       - name: Run tests with Maven
         run: mvn test -Dtest=TestRunner  # Replace TestRunner with your actual test runner class name
 
-     # Adjust if your test results are elsewhere
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
