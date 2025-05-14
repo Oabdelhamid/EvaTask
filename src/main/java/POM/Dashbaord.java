@@ -13,7 +13,7 @@ public class Dashbaord extends pageObjectModel {
 
         super(driver);
     }
-    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
    public Dashbaord NagivateToAdminPage(){
        By Admin = By.xpath("//span[text()='Admin']");
