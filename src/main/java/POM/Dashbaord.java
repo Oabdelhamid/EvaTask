@@ -17,6 +17,7 @@ public class Dashbaord extends pageObjectModel {
 
    public Dashbaord NagivateToAdminPage(){
        By Admin = By.xpath("//span[text()='Admin']");
+       wait.until(driver -> driver.findElement(Admin).isDisplayed());
        driver.findElement(Admin).click();
        wait.until(driver -> driver.findElement(By.cssSelector("div.orangehrm-horizontal-padding>span")).isDisplayed());
        return this;
