@@ -13,11 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up JDK 21
+      - name: Set up JDK 21 with Temurin
         uses: actions/setup-java@v3
         with:
           java-version: '21'  # Use Java 21 for this action
-          distribution: 'temurin'
+          distribution: 'temurin'  # Use Adoptium Temurin as the JDK distribution
 
       - name: Set up Google Chrome
         run: |
@@ -25,15 +25,23 @@ jobs:
 
       - name: Download ChromeDriver
         run: |
-          # Get the latest version of ChromeDriver that corresponds to the latest version of Google Chrome
-          $chromeVersion = (Invoke-WebRequest -Uri "https://omahaproxy.appspot.com/all.json" | ConvertFrom-Json | Where-Object { $_.os -eq "win" } | Select-Object -First 1).versions[0].current_version
-          Write-Host "Latest Chrome version: $chromeVersion"
+          # Get the current version of Google Chrome installed
+          $chromeVersion = (Get-ItemProperty "HKCU:\Software\Google\Chrome\BLBeacon").version
+          Write-Host "Chrome Version: $chromeVersion"
           
-          # Download the matching version of ChromeDriver
-          $driverUrl = "https://chromedriver.storage.googleapis.com/$chromeVersion/chromedriver_win32.zip"
-          Invoke-WebRequest -Uri $driverUrl -OutFile chromedriver.zip
+          # Find the correct ChromeDriver version based on the Chrome version
+          $chromeDriverVersion = $chromeVersion.Split('.')[0..2] -join "."  # e.g., "114.0.5735"
+          
+          # Construct the ChromeDriver download URL
+          $chromeDriverUrl = "https://chromedriver.storage.googleapis.com/$chromeDriverVersion/chromedriver_win32.zip"
+          Write-Host "ChromeDriver URL: $chromeDriverUrl"
+          
+          # Download the corresponding ChromeDriver
+          Invoke-WebRequest -Uri $chromeDriverUrl -OutFile chromedriver.zip
           Expand-Archive -Path chromedriver.zip -DestinationPath $env:USERPROFILE\chromedriver
-          $env:PATH += ";$env:USERPROFILE\chromedriver"  # Add the chromedriver directory to the PATH
+          
+          # Add the ChromeDriver directory to the PATH
+          $env:PATH += ";$env:USERPROFILE\chromedriver"
 
       - name: Install dependencies
         run: |
@@ -42,4 +50,8 @@ jobs:
       - name: Run tests with Maven
         run: mvn test -Dtest=TestRunner  # Replace TestRunner with your actual test runner class name
 
-
+      - name: Upload test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: target/test-*.xml  # Adjust if your test results are elsewhere
