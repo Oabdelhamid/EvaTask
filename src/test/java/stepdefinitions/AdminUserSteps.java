@@ -11,10 +11,10 @@ public class AdminUserSteps {
     private final WebDriver driver;
     private int recordsBefore, recordsAfter;
 
-
     public AdminUserSteps() {
-        this.driver = Hooks.getDriver();
+        this.driver = Hooks.driver;
     }
+
 
     @Given("the user logs in with username {string} and password {string}")
     public void theUserLogsIn(String username, String password) {
@@ -24,6 +24,7 @@ public class AdminUserSteps {
     }
 
     @When("the user navigates to the Admin page")
+
     public void navigateToAdminPage() {
         new Dashbaord(driver).NagivateToAdminPage();    }
 
