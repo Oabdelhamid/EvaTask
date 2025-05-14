@@ -81,9 +81,9 @@ jobs:
           $env:GITHUB_TOKEN = "${{ secrets.GITHUB_TOKEN }}"
           
           # Upload artifact using GitHub CLI
-          gh api -X POST /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts `
-            --field name="screenshots" `
-            --field=content_type="application/zip" `
+          gh api -X POST /repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts ` 
+            --field name="screenshots" ` 
+            --field=content_type="application/zip" ` 
             --field=file="@.github/artifacts/screenshots.zip"
         shell: pwsh
 
