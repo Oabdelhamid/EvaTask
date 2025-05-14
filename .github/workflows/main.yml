@@ -23,22 +23,33 @@ jobs:
         run: |
           choco install googlechrome -y  # Installs the latest version of Google Chrome available on Chocolatey
 
-      - name: Download ChromeDriver
+      - name: Get Chrome Version and Download ChromeDriver
         run: |
-          # Get the current version of Google Chrome installed
-          $chromeVersion = (Get-Command chrome).Source | Select-String -Pattern 'chrome_(\d+)' | ForEach-Object { $_.Matches.Groups[1].Value }
-          Write-Host "Chrome Version: $chromeVersion"
+          # Try to get the Chrome version from the default installation path
+          $chromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+          if (-Not (Test-Path $chromePath)) {
+            $chromePath = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+          }
           
-          # Construct the ChromeDriver download URL
-          $chromeDriverUrl = "https://chromedriver.storage.googleapis.com/$chromeVersion/chromedriver_win32.zip"
-          Write-Host "ChromeDriver URL: $chromeDriverUrl"
+          if (Test-Path $chromePath) {
+            # Get Chrome version by querying the installed Chrome binary
+            $chromeVersion = (& $chromePath --version).Split(" ")[1]
+            Write-Host "Chrome Version: $chromeVersion"
           
-          # Download the corresponding ChromeDriver
-          Invoke-WebRequest -Uri $chromeDriverUrl -OutFile chromedriver.zip
-          Expand-Archive -Path chromedriver.zip -DestinationPath $env:USERPROFILE\chromedriver
+            # Download the corresponding ChromeDriver
+            $chromeDriverUrl = "https://chromedriver.storage.googleapis.com/$chromeVersion/chromedriver_win32.zip"
+            Write-Host "ChromeDriver URL: $chromeDriverUrl"
           
-          # Add the ChromeDriver directory to the PATH
-          $env:PATH += ";$env:USERPROFILE\chromedriver"
+            # Download and unzip ChromeDriver
+            Invoke-WebRequest -Uri $chromeDriverUrl -OutFile chromedriver.zip
+            Expand-Archive -Path chromedriver.zip -DestinationPath $env:USERPROFILE\chromedriver
+          
+            # Add ChromeDriver to PATH
+            $env:PATH += ";$env:USERPROFILE\chromedriver"
+          } else {
+            Write-Host "Chrome is not installed in the default location."
+            exit 1  # Exit with error if Chrome is not found
+          }
 
       - name: Install dependencies
         run: |
