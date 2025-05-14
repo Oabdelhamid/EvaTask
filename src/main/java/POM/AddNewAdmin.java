@@ -50,16 +50,18 @@ public class AddNewAdmin  extends pageObjectModel {
 
     public AddNewAdmin addUserNameAndPassword(String UserName, String password){
 
-        By Name = By.xpath("//input[@wfd-id=\"id2\"]");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(Name));
-        driver.findElement(Name).click();
-        driver.findElement(Name).sendKeys(UserName);
+
         By Password = By.xpath("//input[@wfd-id=\"id3\"]");
         wait.until(driver -> driver.findElement(Password).isDisplayed());
         driver.findElement(Password).sendKeys(password);
         By ConfirmPassword = By.xpath("//input[@wfd-id=\"id4\"]");
         wait.until(driver -> driver.findElement(ConfirmPassword).isDisplayed());
         driver.findElement(ConfirmPassword).sendKeys(password);
+
+        By Name = By.xpath("//input[@wfd-id=\"id2\"]");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(Name));
+        driver.findElement(Name).click();
+        driver.findElement(Name).sendKeys(UserName);
         return this;
     }
     public AddNewAdmin AddSaveButton(){
