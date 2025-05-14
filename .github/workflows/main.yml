@@ -26,14 +26,11 @@ jobs:
       - name: Download ChromeDriver
         run: |
           # Get the current version of Google Chrome installed
-          $chromeVersion = (Get-ItemProperty "HKCU:\Software\Google\Chrome\BLBeacon").version
+          $chromeVersion = (Get-Command chrome).Source | Select-String -Pattern 'chrome_(\d+)' | ForEach-Object { $_.Matches.Groups[1].Value }
           Write-Host "Chrome Version: $chromeVersion"
           
-          # Find the correct ChromeDriver version based on the Chrome version
-          $chromeDriverVersion = $chromeVersion.Split('.')[0..2] -join "."  # e.g., "114.0.5735"
-          
           # Construct the ChromeDriver download URL
-          $chromeDriverUrl = "https://chromedriver.storage.googleapis.com/$chromeDriverVersion/chromedriver_win32.zip"
+          $chromeDriverUrl = "https://chromedriver.storage.googleapis.com/$chromeVersion/chromedriver_win32.zip"
           Write-Host "ChromeDriver URL: $chromeDriverUrl"
           
           # Download the corresponding ChromeDriver
@@ -50,4 +47,3 @@ jobs:
       - name: Run tests with Maven
         run: mvn test -Dtest=TestRunner  # Replace TestRunner with your actual test runner class name
 
-       # Adjust if your test results are elsewhere
