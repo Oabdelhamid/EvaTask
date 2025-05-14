@@ -43,7 +43,7 @@ jobs:
       # Step to upload screenshots if tests fail
       - name: Upload screenshots as artifacts
         if: failure()  # Only upload screenshots if the tests fail
-        uses: actions/upload-artifact@0b7f8abb1508181956e8e162db98cd2233b582f7  # Using a specific commit hash
+        uses: actions/upload-artifact@v2.3.1  # Using specific version number instead of just v3
         with:
           name: screenshot-artifacts
           path: screenshots/**  # This will include all files in the screenshots directory and subdirectories
