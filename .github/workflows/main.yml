@@ -40,7 +40,7 @@ jobs:
           dir screenshots /s
         shell: cmd
 
-      # Step to upload screenshots if tests fail
+      # Step to upload screenshots if tests failsss
       - name: Upload screenshots as artifacts
         if: failure()  # Only upload screenshots if the tests fail
         uses: actions/upload-artifact@v2.3.1  # Using specific version number instead of just v3
