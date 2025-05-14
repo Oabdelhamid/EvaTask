@@ -31,7 +31,7 @@ public class AdminAfterNewUser extends pageObjectModel {
     }
 
     public AdminAfterNewUser DeleteNewUser(){
-        By Trash = By.cssSelector("i.oxd-icon.bi-trash");
+        By Trash = By.className("bi-trash");
         wait.until(driver -> driver.findElement(Trash).isDisplayed());
         driver.findElement(Trash).click();
         By ConfirmDelete = By.xpath("//Button[contains(@class,\"label-danger\")]/i");

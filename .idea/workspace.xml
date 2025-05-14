@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="98209da6-5a4d-4567-a871-4ef5e0846083" name="Changes" comment="CI/CD">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/POM/AdminAfterNewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POM/AdminAfterNewUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747245278833</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="CI/CD">
+      <option name="closed" value="true" />
+      <created>1747245739522</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1747245739522</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
