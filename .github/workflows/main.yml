@@ -50,8 +50,4 @@ jobs:
       - name: Run tests with Maven
         run: mvn test -Dtest=TestRunner  # Replace TestRunner with your actual test runner class name
 
-      - name: Upload test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results
-          path: target/test-*.xml  # Adjust if your test results are elsewhere
+       # Adjust if your test results are elsewhere
