@@ -72,7 +72,9 @@ public class AddNewAdmin  extends pageObjectModel {
 
     public boolean CheckIfUserAdded(){
         By UserAdded = By.xpath("//div[@role=\"alert\"]");
+        wait.until(driver -> driver.findElement(UserAdded).isDisplayed());
         return driver.findElement(UserAdded).isDisplayed();
+
     }
 
 
