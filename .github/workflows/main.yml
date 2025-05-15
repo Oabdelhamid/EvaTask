@@ -21,12 +21,10 @@ jobs:
 
       - name: Set up Google Chrome
         run: |
-          choco install googlechrome --pre -y  # Installs the latest version of Google Chrome available on Chocolatey
+          choco install googlechrome -y  # Installs the latest version of Google Chrome available on Chocolatey
 
-      - name: Install ChromeDriver
-        uses: nanasess/setup-chromedriver@v2
-        with:
-          chromedriver-version: 'latest'
+      - name: 🔥 Install ChromeDriver
+        run: choco install chromedriver -y
 
       - name: Install dependencies
         run: |
