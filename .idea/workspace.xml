@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="98209da6-5a4d-4567-a871-4ef5e0846083" name="Changes" comment="CI/CD">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/POM/AddNewAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POM/AddNewAdmin.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,14 +105,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1743464771322</updated>
-    </task>
-    <task id="LOCAL-00001" summary="handel all POM">
-      <option name="closed" value="true" />
-      <created>1743573289312</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1743573289312</updated>
     </task>
     <task id="LOCAL-00002" summary="handel all POM">
       <option name="closed" value="true" />
@@ -497,7 +490,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747313431002</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="CI/CD">
+      <option name="closed" value="true" />
+      <created>1747314132574</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1747314132575</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

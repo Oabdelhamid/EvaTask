@@ -9,7 +9,7 @@ import java.sql.Driver;
 import java.time.Duration;
 
 public class AddNewAdmin  extends pageObjectModel {
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
      public AddNewAdmin (WebDriver driver){
 
         super(driver);
@@ -38,6 +38,7 @@ public class AddNewAdmin  extends pageObjectModel {
 
         public AddNewAdmin addEmployeeName( String EmployName){
             By EmployeeName = By.xpath("//input[@placeholder=\"Type for hints...\"]");
+            driver.findElement(EmployeeName).click();
             driver.findElement(EmployeeName).sendKeys(EmployName);
             By name = By.xpath("//div[@class=\"oxd-autocomplete-option\"]/span");
             wait.until(driver -> driver.findElement(name).isDisplayed());
