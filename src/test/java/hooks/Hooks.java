@@ -25,6 +25,7 @@ public class Hooks {
                 .addArguments("--disable-dev-shm-usage")
                 .addArguments("--disable-gpu")
                 .addArguments("--disable-popup-blocking")
+                .addArguments("--lang=en")
                 .addArguments("--window-size=1920,1080");
 
         driver = new ChromeDriver(options);
