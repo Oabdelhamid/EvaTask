@@ -12,7 +12,7 @@ public class  Login extends pageObjectModel  {
      public Login(WebDriver driver) {
          super(driver);
      }
-    Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
     public Login Negative(){
        driver.navigate().to("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
