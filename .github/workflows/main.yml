@@ -1,9 +1,8 @@
 name: Java Test with Cucumber and TestNG
 
 on:
-  push:
-    branches:
-      - main  # Trigger only on pushes to the `main` branch
+  schedule:
+  - cron: '0 0 */3 * *'   # Every 3 days at midnight
 
 jobs:
   test:
