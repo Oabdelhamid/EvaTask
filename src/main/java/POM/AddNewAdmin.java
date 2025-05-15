@@ -49,26 +49,24 @@ public class AddNewAdmin  extends pageObjectModel {
 
 
     public AddNewAdmin addUserNameAndPassword(String UserName, String password){
-
-
-        By Password = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[1]/div/div[2]/input");
-        wait.until(driver -> driver.findElement(Password).isDisplayed());
-        driver.findElement(Password).sendKeys(password);
-        By ConfirmPassword = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input");
-        wait.until(driver -> driver.findElement(ConfirmPassword).isDisplayed());
-        driver.findElement(ConfirmPassword).sendKeys(password);
-
-        By Name = By.xpath("//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input");
+        By Name = By.xpath("//label[text()=\"Username\"]/parent::div/following-sibling::div//input");
         wait.until(ExpectedConditions.visibilityOfElementLocated(Name));
         driver.findElement(Name).click();
         driver.findElement(Name).sendKeys(UserName);
+
+        By Password = By.xpath("//label[text()=\"Password\"]/parent::div/following-sibling::div//input");
+        wait.until(driver -> driver.findElement(Password).isDisplayed());
+        driver.findElement(Password).sendKeys(password);
+
+        By ConfirmPassword = By.xpath("//label[text()=\"Confirm Password\"]/parent::div/following-sibling::div//input");
+        wait.until(driver -> driver.findElement(ConfirmPassword).isDisplayed());
+        driver.findElement(ConfirmPassword).sendKeys(password);
         return this;
+
     }
     public AddNewAdmin AddSaveButton(){
         By SaveButton = By.xpath("//button[@type=\"submit\"]");
         driver.findElement(SaveButton).click();
-        By NumberOfRecords = By.cssSelector("div.orangehrm-horizontal-padding>span");
-        wait.until(driver -> driver.findElement(NumberOfRecords).isDisplayed());
         return this;
     }
 
