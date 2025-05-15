@@ -12,7 +12,7 @@ public class AddNewAdmin  extends pageObjectModel {
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
      public AddNewAdmin (WebDriver driver){
 
-        super(driver); ;
+        super(driver);
      }
 
 
@@ -67,6 +67,8 @@ public class AddNewAdmin  extends pageObjectModel {
     public AddNewAdmin AddSaveButton(){
         By SaveButton = By.xpath("//button[@type=\"submit\"]");
         driver.findElement(SaveButton).click();
+        By NumberOfRecords = By.cssSelector("div.orangehrm-horizontal-padding>span");
+        wait.until(driver -> driver.findElement(NumberOfRecords).isDisplayed());
         return this;
     }
 
