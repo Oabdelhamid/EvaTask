@@ -24,7 +24,7 @@ jobs:
           choco install googlechrome -y  # Installs the latest version of Google Chrome available on Chocolatey
 
       - name: Install ChromeDriver
-        uses: actions/setup-chromedriver@v2
+        uses: nanasess/setup-chromedriver@v2
         with:
           chromedriver-version: 'latest'
 
