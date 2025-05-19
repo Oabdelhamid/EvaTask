@@ -9,7 +9,7 @@ import java.sql.Driver;
 import java.time.Duration;
 
 public class AddNewAdmin  extends pageObjectModel {
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
      public AddNewAdmin (WebDriver driver){
 
         super(driver);
