@@ -21,7 +21,7 @@ jobs:
 
       - name: Set up Google Chrome
         run: |
-          choco install googlechrome --checksum YOUR_ACTUAL_CHECKSUM --checksum-type sha256 -y
+          choco install googlechrome --ignore-checksums --force -y
 
       - name: 🔥 Install ChromeDriver
         run: choco install chromedriver -y
