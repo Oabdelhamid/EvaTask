@@ -1,4 +1,4 @@
-name: Java Test with Cucumber and TestNG
+name: Cucumber and TestNG CI Workflow
 
 on:
   push:
