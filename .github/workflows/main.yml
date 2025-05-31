@@ -1,8 +1,9 @@
 name: Java Test with Cucumber and TestNG
 
 on:
-  schedule:
-    - cron: '0 13 * * *'   # every 3 days
+  push:
+    branches:
+      - main
 
 jobs:
   test:
