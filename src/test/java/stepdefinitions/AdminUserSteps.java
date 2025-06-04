@@ -33,7 +33,7 @@ public class AdminUserSteps {
         recordsBefore = new AdminBeforeNewUser(driver).NumberOfRecordsBeforeAddNewUser();
         new AddNewAdmin(driver).addUserRole()
                 .addUserStatus()
-                .addEmployeeName("Thomas")
+                .addEmployeeName("sam")
                 .addUserNameAndPassword(newUsername, "Omar1234@")
                 .AddSaveButton();
         recordsAfter = new AdminAfterNewUser(driver).NumberOfRecordsAfterAddNewUser();
